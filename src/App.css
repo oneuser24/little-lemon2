@@ -1,5 +1,11 @@
+* {
+  font-family: sans-serif;
+}
+
 .App {
   text-align: center;
+
+
 }
 
 .App-logo {
@@ -36,3 +42,88 @@
     transform: rotate(360deg);
   }
 }
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgb(221, 22, 22);
+}
+
+li {
+  float: left;
+  border: 1px solid black;
+
+  
+}
+
+li a {
+  display: block;
+  text-align: center;
+  padding: 0px;
+  text-decoration: none;
+  
+}
+
+li:hover {
+  background: #074019;
+  color: #ffffff;
+
+}
+
+li a:hover {
+
+  color: #ffffff;
+
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 10px;
+}
+
+nav a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1.0rem;
+  margin: 0px 10px;
+  
+}
+
+
+.main-nav {
+  width: 200vh;
+  height: 30px;
+  border: 1px dashed black;
+  align-items: bottom;
+
+}
+
+@media screen and (max-width: 400px) {
+  /*    body {
+        background-color: rgb(5, 22, 5);
+      }
+  
+      #copyright {
+          color: white;
+      }
+      */
+  
+      nav a {
+          font-size: 0.5rem;
+          font-weight: bold;
+      }
+
+      .main-nav {
+        width: 800vh;
+      }
+
+      img {
+        margin-right: 10px;
+      }
+
+    }

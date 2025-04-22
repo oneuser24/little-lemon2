@@ -1,16 +1,36 @@
 import React from 'react';
-import logoImage from '../images/logo1.png';
-import Nav from '../components/Nav';
+import { Routes, Route, Link } from "react-router-dom";
+import headerPhoto from "../images/Littlelemon.jpg";
+import Reservation from "../components/Reservation";
 
-function Header() {
+const Header = () => {
 
 
 
     return (
-        <div style = {{display: 'flex', flexFlow : 'row nowrap', alignItems : 'center', height: '10vh', margin: '0px 0px'}}>
-            <img src={require('../images/logo1.png')} style = {{display: 'block', marginRight: '40px', border: '1px solid black', maxWidth :'200px', minWidth: '80px'}} alt="Little Lemon Logo" />
-            <Nav message = "New navigation" />
-        </div>
+        <header className='header'>
+            <section>
+
+                {/*header text*/}
+
+                <div>
+                    <h1>Little Lemon</h1>
+                    <h3>Chicago</h3>
+                    <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist</p>
+                    <Link to="/reservation"><button>Reserve a Table</button></Link>
+                </div>
+                    <Routes> 
+                        <Route path="/reservation" element={<Reservation />}></Route>
+                    </Routes>
+
+                {/*header photo*/}
+
+                <div className='header-img'>
+                    <img src={headerPhoto} alt="Little Lemon welcome photo" />
+                </div>
+            </section>
+        
+        </header>
     );
 };
 

@@ -2,17 +2,16 @@
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Menu from './components/Menu';
+import Main from './components/Main';
 import Nav from './components/Nav';
-import ReservationForm from './components/ReservationForm';
 
 function App() {
   return (
     <>
       <Nav /> 
-      <Header />
-      <ReservationForm />
-
+{/*      <Header /> */}
+      <Main />
+      <Footer />
     </>
   );
 }

@@ -1,7 +1,28 @@
 import logo from '../images/logo1.png';
 import { useState } from "react";
 
+const underConstruction = (e) => {
+    e.preventDefault();
+    window.Swal.fire({
+        icon: "error",
+        title: "Under construction",
+        text: "Visit this page later",
+        footer: false
+      });
+}
+
 const Nav = () => {
+
+    const handleClick = (anchor) => () => {
+        const id = `${anchor}`;
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      };
 
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -29,11 +50,11 @@ const Nav = () => {
         
         <ul className={`nav-links ${menuOpen ? "visible" : ""}`}>
             <li><a href = " /">Home</a></li>
-            <li><a href = " /">About</a></li>
-            <li><a href = " /">Menu</a></li>
-            <li><a href = " /">Reservations</a></li>
-            <li><a href = " /">Order online</a></li>
-            <li><a href = " /">Login</a></li>
+            <li><a href = "#about" onClick = {handleClick('about')}>About</a></li>
+            <li><a href = "#online-menu" onClick = {handleClick('online-menu')}>Menu</a></li>
+            <li><a href = " /reservation">Reservations</a></li>
+            <li><a href = "#online-menu" onClick = {handleClick('online-menu')}>Order online</a></li>
+            <li><a href = " /" onClick={(e)=>underConstruction(e)}>Login</a></li>
         </ul>
     </nav>
     );

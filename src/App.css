@@ -124,6 +124,20 @@ button {
   cursor: pointer;
   }
 
+  .btnReserve {
+    background-color: #495E57;
+    color: rgb(255, 255, 255);
+    width: 250px;
+    height: 50px;
+    border: none;
+    border-radius: 20px;
+    font-family: "Karla", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1em;    
+  }
+
   button:disabled {
 
   opacity: .5;
@@ -142,8 +156,100 @@ button {
     border-radius: 50px;
   }
 
+  .cards {
 
+    justify-content: center; 
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    gap: 1rem; 
+    margin-top: 0rem;
+    margin-bottom: 2rem;
+    padding: 0px 10%;
+    align-items: top;
+  }
 
+  .menu-item {
+    width: 350px;
+    background: #edefee;
+    border-radius: 15px;
+    margin: 5px 10px;
+    padding-bottom: 15px;
+    border: 1px solid #cfd0d0;
+    overflow: hidden;
+  }
+
+  .menu-item:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  }
+
+  .menu-item img {
+    height: 25em;
+    border-radius: 15px;
+    margin-left: -15px;
+
+  }
+
+  .menu-content{
+    padding: 5px 15px;
+  }
+
+.menu-content .heading{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delivery {
+  background-color: #495E57;
+  color: #ffffff;
+  width: 200px;
+  height: 40px;
+  border: none;
+  border-radius: 15px;
+  font-family: "Karla", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: center;
+  margin-left: 10px;
+  }
+
+  .delivery:hover {
+    background-color: #404E49;
+  }
+
+  .menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4em 12em 2em;
+  }
+
+  .foot-nav-links {    
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+  }
+
+  .foot-nav-links a {
+    color: white;
+  }
+
+  .foot-nav-links a:hover {
+    text-decoration: underline;
+  }
+
+  .btn .btn-success {
+    border-radius: 15px;
+  }
+
+  footer h4 {
+    color: #F4CE14;
+  }
 
 @media screen and (max-width: 768px) {
   /*    body {

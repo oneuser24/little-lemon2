@@ -1,6 +1,7 @@
 import footerLogo from "../images/footerLogo3.png";
 import faFacebook from "../images/facebookLogo1.png";
 import faInsta from "../images/instagramLogo1.png";
+import faPinterest from "../images/pinterestLogo.png";
 
 const underConstruction = (e) => {
     e.preventDefault();
@@ -26,10 +27,8 @@ const handleClick = (anchor) => () => {
 function Footer() {
     return (
         <footer >
-            <section style = {{display: 'flex', flexFlow: "row", flexWrap: "wrap",
-                justifyContent: "space-between", 
-                padding: "1em 15%", background : '#495E57', margin : '0px 0%', color: "white"}}>
-                <img src={footerLogo} alt="Little Lemon"  style={{height:'15em', padding: "1em 0"}} />
+            <section className="footer-content">
+                <img src={footerLogo} alt="Little Lemon"  className="footer-img" />
                 <div>
                     <h4>Links</h4>
                     <ul className="foot-nav-links">
@@ -42,33 +41,26 @@ function Footer() {
                     </ul>
                 </div>
                 <div >
-                <h4>Address</h4>
+                    <h4>Address</h4>
                     <p>123 Main Street</p>
                     <p> Chicago, IL 60654</p>
                     <h4>Phone</h4>
                     <p>(312) 123-4567</p>
                     <h4>Email</h4>
-                    <p>little@lemon.com</p>
-                    
+                    <p>little@lemon.com</p>                    
                 </div>
                 <div>
                     <h4>Hours</h4>
                     <p>08 am - 11 pm Monday - Friday </p>
                     <p>10 am - 10 pm Saturday & Sunday</p>
                 </div>
-                 <div style={{display: "flex", flexFlow: "column", gap: "20px", padding: "1em 0"}}>
+                <div className="footer-social">
                     <a href="https://www.facebook.com/"><img src={faFacebook} height={64} alt="facebook social media " /></a>
                     <a href="https://www.instagram.com/"><img src={faInsta} height={64} alt="facebook social media " /></a>
+                    <a href="https://www.pinterest.com/"><img src={faPinterest} height={64} alt="pinterest social media " /></a>
                 </div>
             </section>
-        <section 
-            style={{display:"flex",
-                background: "#333", 
-                padding: "1em 0px", 
-                color: "#F4CE14", 
-                fontSize:"14pt", 
-                justifyContent:"center",
-                alignItems:"center"}}>
+            <section className="footer-copyright" >
                     Developer © 2025 Little Lemon. All rights reserved
         </section>
         </footer>

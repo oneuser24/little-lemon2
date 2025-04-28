@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import bookLogo from "../images/Asset 14@4x.png";
 
 
 const ReservationForm = (props) => {
 
+    const [currentDate, setCurrentDate] = useState('');
+
+    useEffect(() => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0');
+    const day = String(today.getDate()).padStart(2, '0');
+    setCurrentDate(`${year}-${month}-${day}`);
+    }, []);
+
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [date, setDate] = useState(new Date().toLocaleDateString());
+    const [date, setDate] = useState(currentDate);
     const [times, setTimes] = useState("");
     const [guests, setGuests] = useState("1");
     const [seating, setSeating] = useState("standard");
@@ -24,14 +34,14 @@ const ReservationForm = (props) => {
 
     return (
         <header>
-            <section style={{display: 'grid', gridTemplateColumns: '1fr', justifyItems: 'center', margin: "0px 10%", padding: "2% 5%", border: "1px solid black"}}>
-                <img src={bookLogo} alt="Little Lemon" style={{width: "50%"}} />
-                <h1 style={{ fontSize: "2em"}}>Table reservation form</h1>                
-                    <form onSubmit = {handleSubmit} style={{width: "100%"}}>
+            <section className="bookform-section">
+                <img src={bookLogo} alt="Little Lemon" className="bookform-img" />
+                <h1 className="bookform-title" >Table reservation form</h1>                
+                    <form onSubmit = {handleSubmit} className="bookform">
                         {/*customer contact information*/}
-                        <fieldset>
-                            <legend>Your details</legend>
-                                <div style={{display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr", columnGap: "3%"}}>
+                        <fieldset className="bookform-fieldset">
+                            <legend className="bookform-legend">Your details<span style={{color: "red"}}>*</span></legend>
+                                <div className="bookform-name-time">
                                     <div>
                                         <label htmlFor="first-name"></label>
                                         <input 
@@ -40,7 +50,7 @@ const ReservationForm = (props) => {
                                             type="text" 
                                             value={firstName}
                                             minLength="3"
-                                            style={{height: "2em", width: "100%", borderRadius: "0.3em", fontSize: '1em' }}
+                                            className="bookform-inputfield1"
                                             placeholder="First name" 
                                             border="1px solid black"
                                             onChange={(e) => setFirstName(e.target.value)} 
@@ -52,10 +62,10 @@ const ReservationForm = (props) => {
                                         <input 
                                             id="last-name" 
                                             name="last-name" 
+                                            className="bookform-inputfield1"
                                             type="text" 
                                             value={lastName} 
-                                            minLength="3"
-                                            style={{height: "2em", borderRadius: "0.3em", fontSize: '1em' }}
+                                            minLength="3"                                            
                                             placeholder="Last name"  
                                             onChange={(e) => setLastName(e.target.value)} 
                                             required 
@@ -65,17 +75,30 @@ const ReservationForm = (props) => {
                         </fieldset>
 
                         {/*select date and time*/}
-                        <fieldset>
-                        <legend>Select time</legend>
-                            <div style={{display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr", columnGap: "3%"}}>
+                        <fieldset className="bookform-fieldset">
+                        <legend className="bookform-legend">Select time<span style={{color: "red"}}>*</span></legend>
+                            <div className="bookform-name-time">
                                 <div>
                                     <label htmlFor="book-date">Date: </label><br></br>
-                                    <input id="book-date" value={date} min={new Date().toISOString().split('T')[0]} type="date" onChange={(e) => handleChange(e.target.value)} required />                                    
+                                    <input 
+                                        id="book-date" 
+                                        value={date} 
+                                        className="bookform-inputfield1" 
+                                        defaultValue={currentDate} 
+                                        min={currentDate} 
+                                        type="date" 
+                                        onChange={(e) => handleChange(e.target.value)} 
+                                        required 
+                                    />                                    
                                 </div>
                                 <div>
-                                    <label htmlFor="book-time">Time: </label><br></br>
-                                        <select id="book-time" name="book-time" value={times} onChange={(e) => setTimes(e.target.value)}  >
-                                            <option value="">Select time</option>
+                                    <label htmlFor="book-time" >Time: </label><br></br>
+                                        <select 
+                                        id="book-time" 
+                                        name="book-time" 
+                                        value={times} 
+                                        onChange={(e) => setTimes(e.target.value)} 
+                                        className="bookform-inputfield2" >                                            
                                             {
                                                 props.availableTimes.availableTimes.map((availableTimes) => (<option key ={availableTimes.toString()}>{availableTimes}</option>))
                                             }
@@ -85,12 +108,17 @@ const ReservationForm = (props) => {
                         </fieldset>
 
                         {/*select table options*/}
-                        <fieldset >
-                        <legend >Select a table</legend>
-                            <div style={{display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr", columnGap: "3%"}}>
+                        <fieldset className="bookform-fieldset">
+                        <legend className="bookform-legend">Select a table </legend>
+                            <div className="bookform-table">
                                 <div>
-                                    <label htmlFor="book-seating">Seating options: </label><br></br>
-                                    <select id="book-seating" value={seating} onChange={(e) => setSeating(e.target.value)} required >
+                                    <label htmlFor="book-seating">Seating: </label><br></br>
+                                    <select 
+                                        id="book-seating" 
+                                        value={seating} 
+                                        onChange={(e) => setSeating(e.target.value)} 
+                                        className="bookform-inputfield2" 
+                                    >
                                         <option value="standard">Standard</option>
                                         <option value="outdoor">Outdoor</option>
                                         <option value="counter">Counter</option>
@@ -98,13 +126,26 @@ const ReservationForm = (props) => {
                                     </select>
                                 </div>
                                 <div>
-                                    <label htmlFor="book-guests">Number of guests: </label><br></br>
-                                    <input id="book-guests" value={guests} type="number" min="1" max="15" onChange={(e) => setGuests(e.target.value)} required />
+                                    <label htmlFor="book-guests">Guests: </label><br></br>
+                                    <input 
+                                        id="book-guests" 
+                                        value={guests} 
+                                        type="number" 
+                                        min="1" 
+                                        max="15" 
+                                        onChange={(e) => setGuests(e.target.value)} 
+                                        className="bookform-inputfield1" 
+                                    />
                                 </div>
                                 <div>
                                     <label htmlFor="book-occasion">Occasion: </label><br></br>
-                                    <select id="book-occasion" value={occasion} onChange={(e) => setOccasion(e.target.value)} >
-                                        <option value="" style={{color: "grey"}}><span style={{color: "grey"}}>(optional)</span></option>
+                                    <select 
+                                        id="book-occasion" 
+                                        value={occasion} 
+                                        onChange={(e) => setOccasion(e.target.value)} 
+                                        className="bookform-inputfield2" 
+                                    >
+                                        <option value="" style={{color: "grey"}}>(optional)</option>
                                         <option value="birthday">Birthday</option>
                                         <option value="anniversary">Anniversary</option>
                                         <option value="dating">Date</option>
@@ -117,8 +158,7 @@ const ReservationForm = (props) => {
                             <button 
                                 className = "btnReserve" 
                                 value = "submit" 
-                                style = {{width: '100%'}} 
-                                disabled = {!firstName || firstName.length < 3 || !lastName || lastName.length < 3 || !date }>
+                                disabled = {!firstName || firstName.length < 3 || !lastName || lastName.length < 3 || !date || !times }>
                                     Confirm reservation
                             </button>
                 </form>

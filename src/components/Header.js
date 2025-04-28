@@ -21,7 +21,7 @@ const Header = () => {
                     <div className='header-img'>
                         <img src={headerPhoto} alt="Little Lemon welcome " />
                     </div>
-                    <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist</p>
+                    <p >We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist</p>
                     <Link to="/reservation"><button aria-label='On Click'>Reserve a Table</button></Link>
                 </div>
 

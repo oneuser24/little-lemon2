@@ -76,7 +76,7 @@ nav ul li a:hover {
 
 .header h1 {
   color: #f4ce14;
-  font-family: "Markazi text", "Times New Roman", Times, serif;;
+  font-family: "Markazi text", "Times New Roman", Times, serif;
   font-size: 40pt;
   line-height: 0.3;
   margin-bottom: -15pt;
@@ -86,8 +86,7 @@ nav ul li a:hover {
   font-family: "Markazi text", "Times New Roman", Times, serif;
   color: white;
   font-size: 30pt;
-  line-height: 1.5;
-  
+  line-height: 1.5;  
 }
 
 .header {
@@ -101,8 +100,7 @@ nav ul li a:hover {
   font-size: 20px;
   width: 25vw;
   line-height: 1.5;
-  margin-bottom: 30px;
-  
+  margin-bottom: 30px;  
 }
 
 .header section {
@@ -122,78 +120,74 @@ button {
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
-  }
+}
 
-  .btnReserve {
-    background-color: #495E57;
-    color: rgb(255, 255, 255);
-    width: 250px;
-    height: 50px;
-    border: none;
-    border-radius: 20px;
-    font-family: "Karla", Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 1em;    
-  }
+.btnReserve {
+  background-color: #495E57;
+  color: rgb(255, 255, 255);
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-radius: 20px;
+  font-family: "Karla", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 1em;    
+}
 
-  button:disabled {
-
+button:disabled {
   opacity: .5;
   cursor: not-allowed;
-  } 
+} 
 
-  .header-img {
-    position: absolute;
-    top: 15%;
-    right: 7vw;
-    width: 400px;
-  }
+.header-img {
+  position: absolute;
+  top: 15%;
+  right: 7vw;
+  width: 400px;
+}
 
-  .header-img img {
+.header-img img {
+  border-radius: 50px;
+}
 
-    border-radius: 50px;
-  }
+.cards {
 
-  .cards {
+  justify-content: center; 
+  display: flex; 
+  flex-direction: row; 
+  flex-wrap: wrap; 
+  gap: 1rem; 
+  margin-top: 0rem;
+  margin-bottom: 2rem;
+  padding: 0px 10%;
+  align-items: top;
+}
 
-    justify-content: center; 
-    display: flex; 
-    flex-direction: row; 
-    flex-wrap: wrap; 
-    gap: 1rem; 
-    margin-top: 0rem;
-    margin-bottom: 2rem;
-    padding: 0px 10%;
-    align-items: top;
-  }
+.menu-item {
+  width: 350px;
+  background: #edefee;
+  border-radius: 15px;
+  margin: 5px 10px;
+  padding-bottom: 15px;
+  border: 1px solid #cfd0d0;
+  overflow: hidden;
+}
 
-  .menu-item {
-    width: 350px;
-    background: #edefee;
-    border-radius: 15px;
-    margin: 5px 10px;
-    padding-bottom: 15px;
-    border: 1px solid #cfd0d0;
-    overflow: hidden;
-  }
+.menu-item:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
-  .menu-item:hover {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+.menu-item img {
+  height: 25em;
+  border-radius: 15px;
+  margin-left: -15px;
+}
 
-  }
-
-  .menu-item img {
-    height: 25em;
-    border-radius: 15px;
-    margin-left: -15px;
-
-  }
-
-  .menu-content{
-    padding: 5px 15px;
-  }
+.menu-content{
+  padding: 5px 15px;
+}
 
 .menu-content .heading{
   display: flex;
@@ -214,42 +208,164 @@ button {
   cursor: pointer;
   align-self: center;
   margin-left: 10px;
-  }
+}
 
-  .delivery:hover {
+.delivery:hover {
     background-color: #404E49;
-  }
+}
 
-  .menu-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 4em 12em 2em;
-  }
+.menu-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4em 12em 0em;    
+}
 
-  .foot-nav-links {    
-    padding-left: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    color: white;
-  }
+.foot-nav-links {    
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: white;
+}
 
-  .foot-nav-links a {
-    color: white;
-  }
+.foot-nav-links a {
+  color: white;
+}
 
-  .foot-nav-links a:hover {
-    text-decoration: underline;
-  }
+.foot-nav-links a:hover {
+  text-decoration: underline;
+}
 
-  .btn .btn-success {
-    border-radius: 15px;
-  }
+.btn .btn-success {
+  border-radius: 15px;
+}
 
-  footer h4 {
-    color: #F4CE14;
-  }
+footer h4 {
+  color: #F4CE14;
+}
+
+.bookform-legend {
+  font-size: 14pt; 
+  font-weight: bold;
+}
+
+.bookform-section {
+  display: grid; 
+  grid-template-columns: 1fr; 
+  justify-items: center; 
+  margin: 0px 10%; 
+  padding: 2% 5%; 
+  border: 1px solid black;
+  background-color: #EDEFEE;
+}
+
+.bookform-name-time {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  column-gap: 3%; 
+  padding-right: 3%;
+}
+
+.bookform-table {
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  column-gap: 3%; 
+  padding-right: 3%;
+}
+
+.bookform-fieldset {
+  border: none;
+  padding-bottom: 1em;
+}
+
+.bookform-img {
+  width: 50%;
+}
+
+.bookform-title {
+  font-family: "Markazi text", "Times New Roman", Times, serif;
+  font-size: 3em;
+}
+
+.confirmation-message {
+  display: grid;
+  grid-template-columns: 1fr; 
+  justify-items: center; 
+  margin: 0px 10%; 
+  padding: 2% 5%; 
+  border: 1px solid black;
+}
+
+.bookform {
+  width: 100%;
+}
+
+.bookform-inputfield1 {
+  height: 1.8em; 
+  border-radius: 0.4em; 
+  font-size: 1em; 
+  width: 100%;
+}
+
+.bookform-inputfield2 {
+  height: 2.1em; 
+  border-radius: 0.4em; 
+  font-size: 1em; 
+  width: 100%;
+}
+
+.dish-name {
+  font-family: "Markazi text", "Times New Roman", Times, serif;
+  font-size: 1.8em; 
+}
+
+.dish-price {
+  font-family: "Markazi text", "Times New Roman", Times, serif;
+  font-size: 1.8em; 
+  color: red;
+}
+
+.menu-special {
+  font-family: "Markazi text", "Times New Roman", Times, serif;
+  font-size: 3em;
+}
+
+.footer-content {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1em 15%;
+  background: #495E57; 
+  margin: 0px 0%; 
+  color: white;
+  gap: 2em;
+}
+
+.footer-copyright {
+  display: flex;
+  background: #333; 
+  padding: 1em 0px; 
+  color: #F4CE14; 
+  font-size: 12pt; 
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-social {
+  display: flex;
+  flex-flow: column; 
+  gap: 20px;
+  padding: 1em 0;
+}
+
+.footer-img {
+  height: 15em; 
+  padding: 1em 0;
+}
+
 
 @media screen and (max-width: 768px) {
   /*    body {
@@ -288,10 +404,49 @@ button {
         position: relative;
         width: 400px;
         margin-top: 20px;
+        margin-left: 10%;
       }
 
+      .header p {
+        width: 80vw;        
+      }
 
+      .bookform-img {
+        width: 100%;
+      }
 
+      .bookform-title {
+        font-size: 2em;
+      }
+
+      .menu-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1em 0em 1em;
+      }
+
+      .menu-special {
+        font-family: "Markazi text", "Times New Roman", Times, serif;
+        font-size: 2em;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-flow: column;
+      }
+
+      .footer-img {
+        align-self: flex-start;
+      }
+
+      .footer-social {
+        display: flex;
+        flex-flow: row; 
+        gap: 20px;
+        padding: 1em 0;
+      }
 
   
 }

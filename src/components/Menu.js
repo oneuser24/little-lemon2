@@ -5,6 +5,7 @@ const underConstruction = () => {
         icon: "error",
         title: "Under construction",
         text: "Visit this page later",
+        confirmButtonColor: "#495E57",
         footer: false
       });
 }
@@ -18,7 +19,7 @@ const handleDelivery = (name) => {
         showCancelButton: true,
         confirmButtonColor: "#495E57",
         cancelButtonColor: "#ee9972",
-        confirmButtonText: "Yes, place order",
+        confirmButtonText: "Place order",
         allowOutsideClick: false,
         customClass: {
             confirmButton: "btn btn-success",
@@ -45,7 +46,7 @@ const Menu = () => {
         <div className="menu-container" id="online-menu">
 
             <div className="menu-header" >
-                <h1>This week special!</h1>
+                <h1 className="menu-special">This week special!</h1>
                 <button onClick={underConstruction}>Online Menu</button>                
             </div>
 
@@ -55,8 +56,8 @@ const Menu = () => {
                         <img src={item.getImageSrc()} alt={item.name} />
                         <div className="menu-content">
                             <div className="heading">
-                                <h2>{item.name}</h2>
-                                <p>{item.price}</p>
+                                <h2 className="dish-name">{item.name}</h2>
+                                <p className="dish-price">${item.price}</p>
                             </div>
                             
                             <p>{item.description}</p>

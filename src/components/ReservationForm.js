@@ -1,6 +1,17 @@
 import { useState, useEffect } from "react";
 import bookLogo from "../images/Asset 14@4x.png";
 
+const underConstruction = (e) => {
+    e.preventDefault();
+    window.Swal.fire({
+        icon: "error",
+        title: "Under construction",
+        text: "Visit this page later",
+        footer: false
+      }).then(function() {
+        window.location.href = '/';
+    });
+}
 
 const ReservationForm = (props) => {
 
@@ -20,10 +31,28 @@ const ReservationForm = (props) => {
     const [times, setTimes] = useState("");
     const [guests, setGuests] = useState("1");
     const [seating, setSeating] = useState("standard");
-    const [occasion, setOccasion] = useState("");
+    const [occasion, setOccasion] = useState("regular visit");
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+
+        const formData = {
+            name : firstName, 
+            date: date, 
+            time: times, 
+            guests : guests, 
+            seating : seating,
+            occasion : occasion 
+        };
+        e.preventDefault();   
+        props.setReservationInfo({
+            name : firstName, 
+            date: date, 
+            time: times, 
+            guests : guests, 
+            seating : seating,
+            occasion : occasion 
+        });
+        localStorage.setItem('myData', JSON.stringify(formData));
         props.submitForm(e);
     }
 
@@ -97,10 +126,10 @@ const ReservationForm = (props) => {
                                         id="book-time" 
                                         name="book-time" 
                                         value={times} 
-                                        onChange={(e) => setTimes(e.target.value)} 
+                                        onChange={(e) => setTimes((e.target.value !== "Select time") ? e.target.value : "")} 
                                         className="bookform-inputfield2" >                                            
                                             {
-                                                props.availableTimes.availableTimes.map((availableTimes) => (<option key ={availableTimes.toString()}>{availableTimes}</option>))
+                                                props.availableTimes.availableTimes.map((availableTime) => (<option key ={availableTime.toString()}>{availableTime}</option>))
                                             }
                                         </select>
                                 </div>

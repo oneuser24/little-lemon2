@@ -1,7 +1,7 @@
 import footerLogo from "../images/footerLogo3.png";
-import faFacebook from "../images/facebookLogo1.png";
-import faInsta from "../images/instagramLogo1.png";
-import faPinterest from "../images/pinterestLogo.png";
+import faFacebook from "../images/facebookLogo2.png";
+import faInsta from "../images/instagramLogo2.png";
+import faPinterest from "../images/pinterestLogo2.png";
 
 const underConstruction = (e) => {
     e.preventDefault();
@@ -61,7 +61,7 @@ function Footer() {
                 </div>
             </section>
             <section className="footer-copyright" >
-                    Developer © 2025 Little Lemon. All rights reserved
+                    Copyright © 2025 Little Lemon Restaurant. All rights reserved
         </section>
         </footer>
     )

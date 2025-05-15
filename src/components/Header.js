@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import headerPhoto from "../images/Littlelemon.jpg";
 
 
@@ -22,7 +22,7 @@ const Header = () => {
                         <img src={headerPhoto} alt="Little Lemon welcome " />
                     </div>
                     <p >We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist</p>
-                    <Link to="/reservation"><button aria-label='On Click'>Reserve a Table</button></Link>
+                    <Link to="/reservation"><button aria-label='Click me'>Reserve a Table</button></Link>
                 </div>
 
                 

@@ -25,8 +25,8 @@ const ReservationForm = (props) => {
     setCurrentDate(`${year}-${month}-${day}`);
     }, []);
 
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
+    const [firstName, setFirstName] = useState({value: "", isTouched: false,});
+    const [lastName, setLastName] = useState({value: "", isTouched: false,});
     const [date, setDate] = useState(currentDate);
     const [times, setTimes] = useState("");
     const [guests, setGuests] = useState("1");
@@ -36,7 +36,7 @@ const ReservationForm = (props) => {
     const handleSubmit = (e) => {
 
         const formData = {
-            name : firstName, 
+            name : firstName.value, 
             date: date, 
             time: times, 
             guests : guests, 
@@ -45,14 +45,14 @@ const ReservationForm = (props) => {
         };
         e.preventDefault();   
         props.setReservationInfo({
-            name : firstName, 
+            name : firstName.value, 
             date: date, 
             time: times, 
             guests : guests, 
             seating : seating,
             occasion : occasion 
         });
-        localStorage.setItem('myData', JSON.stringify(formData));
+        localStorage.setItem('reservationData', JSON.stringify(formData));
         props.submitForm(e);
     }
 
@@ -77,14 +77,16 @@ const ReservationForm = (props) => {
                                             id="first-name" 
                                             name="first-name" 
                                             type="text" 
-                                            value={firstName}
+                                            value={firstName.value}
                                             minLength="3"
                                             className="bookform-inputfield1"
                                             placeholder="First name" 
                                             border="1px solid black"
-                                            onChange={(e) => setFirstName(e.target.value)} 
+                                            onChange={(e) => setFirstName({...firstName, value: e.target.value})}
+                                            onBlur={(e) => setFirstName({...firstName, isTouched: true})} 
                                             required 
                                         />
+                                        {(firstName.value.length < 2 && firstName.isTouched) ? <p className="fieldError">Enter valid first name</p> : null}
                                     </div>
                                     <div>
                                         <label htmlFor="last-name"></label>
@@ -93,12 +95,14 @@ const ReservationForm = (props) => {
                                             name="last-name" 
                                             className="bookform-inputfield1"
                                             type="text" 
-                                            value={lastName} 
-                                            minLength="3"                                            
+                                            value={lastName.value} 
+                                            minLength="3"
                                             placeholder="Last name"  
-                                            onChange={(e) => setLastName(e.target.value)} 
-                                            required 
+                                            onChange={(e) => setLastName({...lastName, value: e.target.value})}
+                                            onBlur={(e) => setLastName({...lastName, isTouched: true})}
+                                            required
                                         />
+                                        {(lastName.value.length < 3 && lastName.isTouched) ? <p className="fieldError">Enter valid last name</p> : null}
                                     </div>
                                 </div>
                         </fieldset>
@@ -187,7 +191,7 @@ const ReservationForm = (props) => {
                             <button 
                                 className = "btnReserve" 
                                 value = "submit" 
-                                disabled = {!firstName || firstName.length < 3 || !lastName || lastName.length < 3 || !date || !times }>
+                                disabled = {!firstName || firstName.length < 2 || !lastName || lastName.length < 3 || !date || !times }>
                                     Confirm reservation
                             </button>
                 </form>

@@ -25,12 +25,28 @@ test('renders navigation link in Footer', () => {
 test('renders Form Title in Reservation Form', () => {
 
   const availableTimes = {availableTimes : ['17:00', '17:30']};
-  const submitForm = jest.fn();
 
-  render(<ReservationForm availableTimes={availableTimes} submitForm = {submitForm}/>);
+  render(<ReservationForm availableTimes={availableTimes}  />);
   const linkElement = screen.getByText("Table reservation form");
   expect(linkElement).toBeInTheDocument();
 
+});
+
+test('tests that submit button is disabled if a number of guests is 0', () => {
+
+  const availableTimes = {availableTimes : ['17:00', '17:30']};
+  const handleSubmit = jest.fn();
+
+  render(<ReservationForm availableTimes={availableTimes} onSubmit = {handleSubmit}/>);
+
+  const rangeInput = screen.getByLabelText("Guests:");
+  fireEvent.change(rangeInput, {target: {value : "0"}});
+
+  const submitButton = screen.getByRole("button");
+  fireEvent.click(submitButton);
+  
+  expect(handleSubmit).not.toHaveBeenCalled();
+  expect(submitButton).toHaveAttribute("disabled");
   
 });
 

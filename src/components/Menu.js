@@ -47,7 +47,7 @@ const Menu = () => {
 
             <div className="menu-header" >
                 <h1 className="menu-special">This week special!</h1>
-                <button onClick={underConstruction}>Online Menu</button>                
+                <button onClick={underConstruction} aria-label="On Click">Online Menu</button>
             </div>
 
             <div className="cards" >
@@ -59,13 +59,11 @@ const Menu = () => {
                                 <h2 className="dish-name">{item.name}</h2>
                                 <p className="dish-price">${item.price}</p>
                             </div>
-                            
                             <p>{item.description}</p>
                         </div>
                         <div >
-                            <button className="delivery" onClick={(e)=>handleDelivery(item.name)}>Order a delivery</button>
+                            <button className="delivery" onClick={(e)=>handleDelivery(item.name)} aria-label="On Click">Order a delivery</button>
                         </div>
-                                                
                        </div>)
                 }
             </div>

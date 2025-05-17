@@ -1,17 +1,6 @@
 import { useState, useEffect } from "react";
 import bookLogo from "../images/Asset 14@4x.png";
 
-const underConstruction = (e) => {
-    e.preventDefault();
-    window.Swal.fire({
-        icon: "error",
-        title: "Under construction",
-        text: "Visit this page later",
-        footer: false
-      }).then(function() {
-        window.location.href = '/';
-    });
-}
 
 const ReservationForm = (props) => {
 
@@ -188,7 +177,8 @@ const ReservationForm = (props) => {
                                 </div>
                             </div>
                         </fieldset>
-                            <button 
+                            <button
+                                aria-label="On Click" 
                                 className = "btnReserve" 
                                 value = "submit" 
                                 disabled = {!firstName || firstName.length < 2 || !lastName || lastName.length < 3 || !date || !times }>

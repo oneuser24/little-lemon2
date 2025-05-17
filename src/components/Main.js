@@ -1,6 +1,5 @@
 import {Route, Routes, useNavigate} from "react-router";
 import Header from "../components/Header";
-// import Reservation from "../components/Reservation";
 import { useState, useReducer } from "react";
 import ReservationConfirmation from "./ReservationConfirmation";
 import ReservationForm from "./ReservationForm";
@@ -54,7 +53,8 @@ const Main = () => {
     };
 
     return (
-        <Routes>
+        <div style={{marginTop: "115px"}}>
+        <Routes >
             <Route 
                 path = "/" 
                 element={<Header  />}>
@@ -73,7 +73,7 @@ const Main = () => {
                 element={<ReservationConfirmation  reservationInfo={reservationInfo} />}>
             </Route>
         </Routes>
-
+        </div>
     );
 };
 

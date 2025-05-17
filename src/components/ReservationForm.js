@@ -67,7 +67,7 @@ const ReservationForm = (props) => {
                                             name="first-name" 
                                             type="text" 
                                             value={firstName.value}
-                                            minLength="3"
+                                            minLength="2"
                                             className="bookform-inputfield1"
                                             placeholder="First name" 
                                             border="1px solid black"

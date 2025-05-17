@@ -9,6 +9,7 @@ const underConstruction = (e) => {
         icon: "error",
         title: "Under construction",
         text: "Visit this page later",
+        confirmButtonColor: "#495E57",
         footer: false
       });
 }

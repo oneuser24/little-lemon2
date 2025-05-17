@@ -8,7 +8,7 @@ const Header = () => {
 
     return (
         <header className='header'>
-            <section id="about">
+            <section >
 
                 {/*header text*/}
 

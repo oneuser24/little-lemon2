@@ -32,6 +32,7 @@ const handleDelivery = (name) => {
             title: "Ordered!",
             text: `Your ${name} is on the way`,
             icon: "success",
+            confirmButtonColor: "#495E57",
             allowOutsideClick: false,
           });
         }
@@ -43,7 +44,7 @@ const handleDelivery = (name) => {
 const Menu = () => {
 
     return (
-        <div className="menu-container" id="online-menu">
+        <div id="online-menu">
 
             <div className="menu-header" >
                 <h1 className="menu-special">This week special!</h1>

@@ -44,12 +44,51 @@ test('tests that submit button is disabled if a number of guests is 0', () => {
 
   const submitButton = screen.getByRole("button");
   fireEvent.click(submitButton);
-  
+
   expect(handleSubmit).not.toHaveBeenCalled();
   expect(submitButton).toHaveAttribute("disabled");
-  
+
+});
+
+  const availableTimes = {availableTimes : ['17:00', '17:30']};
+  const handleSubmit = jest.fn();
+
+describe('Renders the ReservationForm', () => {
+beforeEach(() => {
+    render(
+    <ReservationForm
+      availableTimes={availableTimes}
+      onSubmit = {handleSubmit}
+    />
+    );
+});
+
+test("First name is required", () => {
+
+  const input = screen.getByPlaceholderText("First name"); 
+  expect(input).toHaveAttribute("type", "text");
+  expect(input).toBeRequired();
+
+});
+
+test("Date is required", () => {
+
+  const input = screen.getByLabelText("Date:"); 
+  expect(input).toHaveAttribute("type", "date");
+  expect(input).toBeRequired();
+
+});
+
+test("Ocassion is required", () => {
+
+    const select = screen.getByLabelText("Occasion:");
+    const option = screen.getAllByRole('option');
+    const optionLabels = option.map((o) => o.textContent);
+
+    expect(select).toBeInTheDocument();
+    expect(optionLabels).toEqual(expect.arrayContaining(['Birthday', 'Anniversary', "Business meal"]));
 });
 
 
 
-
+});

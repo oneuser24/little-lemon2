@@ -61,7 +61,7 @@ const ReservationForm = (props) => {
                             <legend className="bookform-legend">Your details<span style={{color: "red"}}>*</span></legend>
                                 <div className="bookform-name-time">
                                     <div>
-                                        <label htmlFor="first-name"></label>
+                                        <label htmlFor="first-name" ></label>
                                         <input 
                                             id="first-name" 
                                             name="first-name" 
@@ -108,10 +108,10 @@ const ReservationForm = (props) => {
                                         className="bookform-inputfield1" 
                                         defaultValue={currentDate} 
                                         min={currentDate} 
-                                        type="date" 
+                                        type="date"
                                         onChange={(e) => handleChange(e.target.value)} 
-                                        required 
-                                    />                                    
+                                        required
+                                    />
                                 </div>
                                 <div>
                                     <label htmlFor="book-time" >Time: </label><br></br>
@@ -120,7 +120,7 @@ const ReservationForm = (props) => {
                                         name="book-time" 
                                         value={times} 
                                         onChange={(e) => setTimes((e.target.value !== "Select time") ? e.target.value : "")} 
-                                        className="bookform-inputfield2" >                                            
+                                        className="bookform-inputfield2" >
                                             {
                                                 props.availableTimes.availableTimes.map((availableTime) => (<option key ={availableTime.toString()}>{availableTime}</option>))
                                             }
